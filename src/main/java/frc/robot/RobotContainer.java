@@ -50,7 +50,7 @@ public class RobotContainer {
   }
 
   public void configureDriverTwo() {
-    driverTwo.circle().onTrue(new InstantCommand(() -> intake.intakeMotor.set(Constants.MechanismConstants.kintakeSpeed)));
+    driverTwo.circle().onTrue(new InstantCommand(() -> intake.intakeMotor.set(Constants.MechanismConstants.kintakeSpeed))); 
 
     driverTwo.R1().onTrue(new InstantCommand(() -> intakeAngle.intakeAngleMotor.set(Constants.MechanismConstants.kintakeAngleSpeed)));
     driverTwo.L1().onTrue(new InstantCommand(() -> intakeAngle.intakeAngleMotor.set(-Constants.MechanismConstants.kintakeAngleSpeed)));
