@@ -12,10 +12,13 @@ import frc.robot.Constants;
 
 public class subShooter extends SubsystemBase {
   /** Creates a new subShooter. */
-  public CANSparkMax shooterMotor;
+  public CANSparkMax shooterUpperMotor;
+  public CANSparkMax shooterLowerMotor;
   public subShooter() {
-    shooterMotor = new CANSparkMax(Constants.MechanismConstants.kshooterCanId, MotorType.kBrushless);
-    shooterMotor.restoreFactoryDefaults();
+    shooterUpperMotor = new CANSparkMax(Constants.MechanismConstants.kshooterCanId, MotorType.kBrushless);
+    shooterLowerMotor = new CANSparkMax(Constants.MechanismConstants.kshooterInvCanId, MotorType.kBrushless);
+    shooterLowerMotor.follow(shooterUpperMotor, true);
+    shooterUpperMotor.restoreFactoryDefaults();
   }
 
   @Override

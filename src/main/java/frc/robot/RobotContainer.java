@@ -27,6 +27,7 @@ public class RobotContainer {
   SendableChooser<Command> chooser = new SendableChooser<>();
   public RobotContainer() {
     configureDriverOne();
+    configureDriverTwo();
     addAutoOptions();
   }
 
@@ -54,7 +55,7 @@ public class RobotContainer {
     driverTwo.R1().onTrue(new InstantCommand(() -> intakeAngle.intakeAngleMotor.set(Constants.MechanismConstants.kintakeAngleSpeed)));
     driverTwo.L1().onTrue(new InstantCommand(() -> intakeAngle.intakeAngleMotor.set(-Constants.MechanismConstants.kintakeAngleSpeed)));
 
-    driverTwo.cross().onTrue(new InstantCommand(() -> shooter.shooterMotor.set(Constants.MechanismConstants.kshooterSpeed)));
+    driverTwo.cross().onTrue(new InstantCommand(() -> shooter.shooterUpperMotor.set(Constants.MechanismConstants.kshooterSpeed)));
 
     driverTwo.povUp().onTrue(new InstantCommand(() -> shooterAngle.shooterAngleMotor.set(Constants.MechanismConstants.kshooterAngleSpeed)));
     driverTwo.povDown().onTrue(new InstantCommand(() -> shooterAngle.shooterAngleMotor.set(Constants.MechanismConstants.kshooterAngleSpeed)));
