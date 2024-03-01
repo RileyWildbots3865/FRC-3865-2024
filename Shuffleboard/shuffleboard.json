@@ -1,0 +1,219 @@
+{
+  "tabPane": [
+    {
+      "title": "SmartDashboard",
+      "autoPopulate": true,
+      "autoPopulatePrefix": "SmartDashboard/",
+      "widgetPane": {
+        "gridSize": 64.0,
+        "showGrid": true,
+        "hgap": 8.0,
+        "vgap": 8.0,
+        "titleType": 0,
+        "tiles": {
+          "0,0": {
+            "size": [
+              4,
+              1
+            ],
+            "content": {
+              "_type": "ComboBox Chooser",
+              "_source0": "network_table:///SmartDashboard/Auto Options",
+              "_title": "Auto Options",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "0,2": {
+            "size": [
+              4,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Heading",
+              "_title": "Heading",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "0,1": {
+            "size": [
+              4,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Robot Location",
+              "_title": "Robot Location",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "6,4": {
+            "size": [
+              3,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Front Left Angle Raw",
+              "_title": "Front Left Angle Raw",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "9,4": {
+            "size": [
+              3,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Front Right Angle Raw",
+              "_title": "Front Right Angle Raw",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "6,5": {
+            "size": [
+              3,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Back Left Angle Raw",
+              "_title": "Back Left Angle Raw",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "9,5": {
+            "size": [
+              3,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Back Right Angle Raw",
+              "_title": "Back Right Angle Raw",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "6,6": {
+            "size": [
+              3,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Front Left Angle",
+              "_title": "Front Left Angle",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "9,6": {
+            "size": [
+              3,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Front Right Angle",
+              "_title": "Front Right Angle",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "6,7": {
+            "size": [
+              3,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Back Left Angle",
+              "_title": "Back Left Angle",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "9,7": {
+            "size": [
+              3,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Back Right Angle",
+              "_title": "Back Right Angle",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "4,0": {
+            "size": [
+              3,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Shooter Velocity",
+              "_title": "Shooter Velocity",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "4,1": {
+            "size": [
+              3,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Shot Angle Position",
+              "_title": "Shot Angle Position",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "4,2": {
+            "size": [
+              3,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Turret Position",
+              "_title": "Turret Position",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "LiveWindow",
+      "autoPopulate": true,
+      "autoPopulatePrefix": "LiveWindow/",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "titleType": 0,
+        "tiles": {}
+      }
+    }
+  ],
+  "windowGeometry": {
+    "x": -5.0,
+    "y": 228.0,
+    "width": 2049.0,
+    "height": 941.0
+  }
+}
