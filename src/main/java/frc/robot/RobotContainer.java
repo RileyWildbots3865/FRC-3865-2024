@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandPS5Controller;
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.commands.cmdAuto_Base;
 import frc.robot.commands.cmdSwerve_TeleOp;
 import frc.robot.subsystems.subIntake;
 import frc.robot.subsystems.subIntakeAngle;
@@ -46,6 +47,7 @@ public class RobotContainer {
 
   private void addAutoOptions(){
     chooser.setDefaultOption("Do Nothing", new InstantCommand());
+    chooser.addOption("Base- DO NOT USE IF POSSIBLE", new cmdAuto_Base(swerve, 0.25));
     SmartDashboard.putData("Auto Options", chooser);
   }
 
