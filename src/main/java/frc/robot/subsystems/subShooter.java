@@ -20,6 +20,8 @@ public class subShooter extends SubsystemBase {
     shooterLowerMotor.follow(shooterUpperMotor, true);
     shooterUpperMotor.restoreFactoryDefaults();
   }
+  
+
 
   @Override
   public void periodic() {

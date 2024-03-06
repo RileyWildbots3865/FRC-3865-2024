@@ -66,7 +66,7 @@ public class swerveModule {
         turningSparkMax.setSmartCurrentLimit(moduleConstants.kTurningMotorCurrentLimit);
 
         turningPIDController = new PIDController(0.01, 0, 0);
-         turningPIDController.setIntegratorRange(-1, 1);
+        turningPIDController.setIntegratorRange(-1, 1);
         turningPIDController.enableContinuousInput(0, 360);
 
         drivingSparkMax.burnFlash();

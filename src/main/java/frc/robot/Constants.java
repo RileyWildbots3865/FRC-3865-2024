@@ -6,8 +6,8 @@ public final class Constants {
     public static final int DriverTwo = 1;
   }
   public static final class DriveConstants {
-    public static final double kMaxSpeedMetersPerSecond = 4.8;
-    public static final double kMaxAngularSpeed = 2 * Math.PI; // radians per second
+    public static final double kMaxSpeedMetersPerSecond = 5;
+    public static final double kMaxAngularSpeed = 2.5 * Math.PI; // radians per second
   }
   public static final class MechanismConstants {
     public static final int kshooterAngleCanId = 13;
@@ -18,11 +18,15 @@ public final class Constants {
 
     public static final int kintakeCanId = 12;
 
+    
     public static final double kshooterSpeed = 0.5;
-    public static final double kshooterAngleSpeed = 0.5;
-    public static final double kintakeSpeed = 0.5;
+    public static final double kshooterAngleSpeed = 0.7;
+    public static final double kintakeSpeedIn = 0.3;
+    public static final double kintakeSpeedOut = 0.5;
     public static final double kintakeAngleSpeed = 0.5;
 
-    public static final int klongjohnCanId = 77;
+    public static final int klongJohnCanId = 14;
+
+    public static final double klongJohnSpeed = 1.0;
   }
 }
