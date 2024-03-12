@@ -27,20 +27,21 @@ public class subSwerve extends SubsystemBase {
   public static final double kFrontRightOffset = 0.261962890625;
   public static final double kRearLeftOffset = 0.809326171875;
   public static final double kRearRightOffset = 0.570068359375;
-
+  // front left module
   public static final int kFrontLeftDrivingCanId = 5;
-  public static final int kFrontRightDrivingCanId = 3;
-  public static final int kRearLeftDrivingCanId = 7;
-  public static final int kRearRightDrivingCanId = 2;
-
   public static final int kFrontLeftTurningCanId = 6;
+  public static final int kFrontLeftCANcoder = 1;  
+  // front right module
+  public static final int kFrontRightDrivingCanId = 3;
   public static final int kFrontRightTurningCanId = 4;
+  public static final int kFrontRightCANcoder = 4;  
+  // rear left module
+  public static final int kRearLeftDrivingCanId = 7;
   public static final int kRearLeftTurningCanId = 8;
-  public static final int kRearRightTurningCanId = 1;
-
-  public static final int kFrontLeftCANcoder = 1;
-  public static final int kFrontRightCANcoder = 4;
   public static final int kRearLeftCANcoder = 2;
+  // rear right module
+  public static final int kRearRightDrivingCanId = 2;
+  public static final int kRearRightTurningCanId = 1;
   public static final int kRearRightCANcoder = 3;
 
   private final swerveModule frontLeftModule = new swerveModule(kFrontLeftDrivingCanId,kFrontLeftTurningCanId,kFrontLeftCANcoder,kFrontLeftOffset, "Front Left");

@@ -16,8 +16,8 @@ import frc.robot.commands.cmdSwerve_TeleOp;
 import frc.robot.subsystems.subIntake;
 import frc.robot.subsystems.subIntakeAngle;
 //import frc.robot.subsystems.subLongJohn;
-import frc.robot.subsystems.subShooter;
-import frc.robot.subsystems.subShooterAngle;
+//import frc.robot.subsystems.subShooter;
+//import frc.robot.subsystems.subShooterAngle;
 import frc.robot.subsystems.subSwerve;
 
 public class RobotContainer {
@@ -26,8 +26,8 @@ public class RobotContainer {
   private final subSwerve swerve = new subSwerve();
   private final subIntake intake = new subIntake();
   private final subIntakeAngle intakeAngle = new subIntakeAngle();
-  private final subShooter shooter = new subShooter();
-  private final subShooterAngle shooterAngle = new subShooterAngle();
+  //private final subShooter shooter = new subShooter();
+  //private final subShooterAngle shooterAngle = new subShooterAngle();
   //private final subLongJohn longJohn = new subLongJohn();
   SendableChooser<Command> chooser = new SendableChooser<>();
   public RobotContainer() {
@@ -58,41 +58,23 @@ public class RobotContainer {
 
   public void configureDriverTwo() {
     driverTwo.povRight().whileTrue(new cmdIntake(intake, true));
-    // driverTwo.povRight().onTrue(new InstantCommand(() -> intake.intakeMotor.set(Constants.MechanismConstants.kintakeSpeedIn)));
-    // driverTwo.povRight().onFalse(new InstantCommand(() -> intake.intakeMotor.set(0))); 
+    driverTwo.povRight().onTrue(new InstantCommand(() -> intake.intakeMotor.set(Constants.MechanismConstants.kintakeSpeedIn)));
+
+    driverTwo.povRight().onFalse(new InstantCommand(() -> intake.intakeMotor.set(0))); 
     driverTwo.povLeft().whileTrue(new cmdIntake(intake, false));
-    // driverTwo.povLeft().onTrue(new InstantCommand(() -> intake.intakeMotor.set(-Constants.MechanismConstants.kintakeSpeedIn)));
-    // driverTwo.povLeft().onFalse(new InstantCommand(() -> intake.intakeMotor.set(0))); 
+
+    driverTwo.povLeft().onTrue(new InstantCommand(() -> intake.intakeMotor.set(-Constants.MechanismConstants.kintakeSpeedIn)));
+    driverTwo.povLeft().onFalse(new InstantCommand(() -> intake.intakeMotor.set(0))); 
+
     driverTwo.L2().onTrue(new InstantCommand(() -> intake.intakeMotor.set(-Constants.MechanismConstants.kintakeSpeedOut)));
     driverTwo.L2().onFalse(new InstantCommand(() -> intake.intakeMotor.set(0))); 
     
-
     driverTwo.R1().onTrue(new InstantCommand(() -> intakeAngle.intakeAngleMotor.set(Constants.MechanismConstants.kintakeAngleSpeed)));
     driverTwo.R1().onFalse(new InstantCommand(() -> intakeAngle.intakeAngleMotor.set(0)));
     
     driverTwo.R2().onTrue(new InstantCommand(() -> intakeAngle.intakeAngleMotor.set(-Constants.MechanismConstants.kintakeAngleSpeed)));
     driverTwo.R2().onFalse(new InstantCommand(() -> intakeAngle.intakeAngleMotor.set(0)));
-
-    driverTwo.square().onTrue(new InstantCommand(() -> shooter.shooterUpperMotor.set(Constants.MechanismConstants.kshooterSpeed)));
-    driverTwo.square().onFalse(new InstantCommand(() -> shooter.shooterUpperMotor.set(0)));
-
-    driverTwo.circle().onTrue(new InstantCommand(() -> shooter.shooterUpperMotor.set(-Constants.MechanismConstants.kshooterSpeed)));
-    driverTwo.circle().onFalse(new InstantCommand(() -> shooter.shooterUpperMotor.set(0)));
-
-
-
-
-    driverTwo.triangle().onTrue(new InstantCommand(() -> shooterAngle.shooterAngleMotor.set(Constants.MechanismConstants.kshooterAngleSpeed)));
-    driverTwo.triangle().onFalse(new InstantCommand(() -> shooterAngle.shooterAngleMotor.set(0)));
-
-    driverTwo.cross().onTrue(new InstantCommand(() -> shooterAngle.shooterAngleMotor.set(-Constants.MechanismConstants.kshooterAngleSpeed)));
-    driverTwo.cross().onFalse(new InstantCommand(() -> shooterAngle.shooterAngleMotor.set(0)));
-
-    // driverTwo.povUp().onTrue(new InstantCommand(() -> longJohn.longJohnMotor.set(Constants.MechanismConstants.klongJohnSpeed)));
-    // driverTwo.povUp().onFalse(new InstantCommand(() -> longJohn.longJohnMotor.set(0)));
-
-    // driverTwo.povDown().onTrue(new InstantCommand(() -> longJohn.longJohnMotor.set(-Constants.MechanismConstants.klongJohnSpeed)));
-    // driverTwo.povDown().onFalse(new InstantCommand(() -> longJohn.longJohnMotor.set(0)));
+  
   }
 
   public Command getAutonomousCommand() {

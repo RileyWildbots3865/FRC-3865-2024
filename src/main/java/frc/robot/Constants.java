@@ -21,9 +21,9 @@ public final class Constants {
     
     public static final double kshooterSpeed = 0.5;
     public static final double kshooterAngleSpeed = 0.7;
-    public static final double kintakeSpeedIn = 0.3;
+    public static final double kintakeSpeedIn = 0.5;
     public static final double kintakeSpeedOut = 0.5;
-    public static final double kintakeAngleSpeed = 0.5;
+    public static final double kintakeAngleSpeed = 0.7;
 
     public static final int klongJohnCanId = 14;
 
