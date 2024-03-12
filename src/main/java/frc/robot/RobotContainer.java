@@ -74,6 +74,8 @@ public class RobotContainer {
     
     driverTwo.R2().onTrue(new InstantCommand(() -> intakeAngle.intakeAngleMotor.set(-Constants.MechanismConstants.kintakeAngleSpeed)));
     driverTwo.R2().onFalse(new InstantCommand(() -> intakeAngle.intakeAngleMotor.set(0)));
+
+    driverTwo.PS().onTrue(new InstantCommand(() -> intakeAngle.intakeAngleMotor.set(Constants.MechanismConstants.kIntakeIn)));
   
   }
 

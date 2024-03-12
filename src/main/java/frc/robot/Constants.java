@@ -18,12 +18,18 @@ public final class Constants {
 
     public static final int kintakeCanId = 12;
 
+    //Intake 
+    public static final double kIntakeIn = 0.0;
+    public static final double kIntakeShoot = 0.6;
+
     
     public static final double kshooterSpeed = 0.5;
     public static final double kshooterAngleSpeed = 0.7;
     public static final double kintakeSpeedIn = 0.5;
     public static final double kintakeSpeedOut = 0.5;
     public static final double kintakeAngleSpeed = 0.7;
+
+
 
     public static final int klongJohnCanId = 14;
 
