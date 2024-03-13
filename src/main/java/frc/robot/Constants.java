@@ -18,9 +18,9 @@ public final class Constants {
 
     public static final int kintakeCanId = 12;
 
-    //Intake 
-    public static final double kIntakeIn = 0.0;
-    public static final double kIntakeShoot = 0.6;
+    
+    public static final double kIntakeInOffset = 0.0;
+    public static final double kIntakeShootOffset = 0.6;
 
     
     public static final double kshooterSpeed = 0.5;
