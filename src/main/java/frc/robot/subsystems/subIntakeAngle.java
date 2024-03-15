@@ -24,10 +24,13 @@ public class subIntakeAngle extends SubsystemBase {
   
 
   public subIntakeAngle() {
-    intakeAngleMotor = new CANSparkMax(Constants.MechanismConstants.kintakeAnglecanId, MotorType.kBrushed);
+    intakeAngleMotor = new CANSparkMax(Constants.MechanismConstants.kintakeAnglecanId, MotorType.kBrushless);
     intakeAngleMotor.restoreFactoryDefaults();
     m_encoder = intakeAngleMotor.getAbsoluteEncoder(Type.kDutyCycle);
+
   }
+  
+     
 
   @Override
   public void periodic() {

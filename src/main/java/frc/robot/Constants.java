@@ -18,20 +18,25 @@ public final class Constants {
 
     public static final int kintakeCanId = 12;
 
-    
-    public static final double kIntakeInOffset = 0.0;
-    public static final double kIntakeShootOffset = 0.6;
+  
 
     
     public static final double kshooterSpeed = 0.5;
     public static final double kshooterAngleSpeed = 0.7;
     public static final double kintakeSpeedIn = 0.5;
-    public static final double kintakeSpeedOut = 0.5;
+    public static final double kintakeSpeedOut = 0.2;
     public static final double kintakeAngleSpeed = 0.7;
+    public static final double kpresetAngleSpeed = 0.3;
 
 
 
-    public static final int klongJohnCanId = 14;
+    public static final double SukPosition = 0.46;
+    public static final double shootPosition = 0.66;
+    public static final double InPosition = 0.941;
+
+
+
+    public static final int klongJohnCanId = 1;
 
     public static final double klongJohnSpeed = 1.0;
   }

@@ -14,7 +14,7 @@
 //   /** Creates a new subLongJhon. */
 //   public CANSparkMax longJohnMotor;
 //   public subLongJohn() {
-//     longJohnMotor = new CANSparkMax(Constants.MechanismConstants.klongJohnCanId, MotorType.kBrushed);
+//     longJohnMotor = new CANSparkMax(Constants.MechanismConstants.klongJohnCanId, MotorType.kBrushless);
 //     longJohnMotor.restoreFactoryDefaults();
 //   }
   

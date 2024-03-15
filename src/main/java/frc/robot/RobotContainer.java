@@ -1,6 +1,7 @@
 package frc.robot;
 
 //import com.pathplanner.lib.auto.AutoBuilder;
+import com.revrobotics.SparkAbsoluteEncoder.Type;
 
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -11,10 +12,11 @@ import edu.wpi.first.wpilibj2.command.button.CommandPS5Controller;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.cmdAuto_Base;
 import frc.robot.commands.cmdAuto_CrossLine;
-import frc.robot.commands.cmdIntake;
+// import frc.robot.commands.cmdIntake;
 import frc.robot.commands.cmdSwerve_TeleOp;
 import frc.robot.subsystems.subIntake;
 import frc.robot.subsystems.subIntakeAngle;
+// import frc.robot.subsystems.subLongJohn;
 //import frc.robot.subsystems.subLongJohn;
 //import frc.robot.subsystems.subShooter;
 //import frc.robot.subsystems.subShooterAngle;
@@ -26,6 +28,7 @@ public class RobotContainer {
   private final subSwerve swerve = new subSwerve();
   private final subIntake intake = new subIntake();
   private final subIntakeAngle intakeAngle = new subIntakeAngle();
+  // private final subLongJohn longJohn = new subLongJohn();
   //private final subShooter shooter = new subShooter();
   //private final subShooterAngle shooterAngle = new subShooterAngle();
   //private final subLongJohn longJohn = new subLongJohn();
@@ -57,11 +60,13 @@ public class RobotContainer {
   }
 
   public void configureDriverTwo() {
-    driverTwo.povRight().whileTrue(new cmdIntake(intake, true));
-    driverTwo.povRight().onTrue(new InstantCommand(() -> intake.intakeMotor.set(Constants.MechanismConstants.kintakeSpeedIn)));
+    // driverTwo.povUp().onTrue(new InstantCommand(() -> longJohn.longJohnMotor.set(Constants.MechanismConstants.klongJohnSpeed)));
+    // driverTwo.povUp().onFalse(new InstantCommand(() -> longJohn.longJohnMotor.set(0)));
 
+    // driverTwo.povRight().whileTrue(new cmdIntake(intake, true));
+    driverTwo.povRight().onTrue(new InstantCommand(() -> intake.intakeMotor.set(Constants.MechanismConstants.kintakeSpeedIn)));
     driverTwo.povRight().onFalse(new InstantCommand(() -> intake.intakeMotor.set(0))); 
-    driverTwo.povLeft().whileTrue(new cmdIntake(intake, false));
+    // driverTwo.povLeft().whileTrue(new cmdIntake(intake, false));
 
     driverTwo.povLeft().onTrue(new InstantCommand(() -> intake.intakeMotor.set(-Constants.MechanismConstants.kintakeSpeedIn)));
     driverTwo.povLeft().onFalse(new InstantCommand(() -> intake.intakeMotor.set(0))); 
@@ -75,11 +80,35 @@ public class RobotContainer {
     driverTwo.R2().onTrue(new InstantCommand(() -> intakeAngle.intakeAngleMotor.set(-Constants.MechanismConstants.kintakeAngleSpeed)));
     driverTwo.R2().onFalse(new InstantCommand(() -> intakeAngle.intakeAngleMotor.set(0)));
 
-    driverTwo.L2().onTrue(new InstantCommand(() -> intakeAngle.intakeAngleMotor.set(Constants.MechanismConstants.kIntakeInOffset)));
-  
+    // driverTwo.L1().onTrue(new InstantCommand(() -> intakeAngle.intakeAngleMotor(set)
+    //use a variable to set .46 as the desired angle
+    driverTwo.circle().onTrue(new InstantCommand(() -> moveToPosition(Constants.MechanismConstants.SukPosition)));
+    driverTwo.square().onTrue(new InstantCommand(() -> moveToPosition(Constants.MechanismConstants.shootPosition)));
+    driverTwo.cross().onTrue(new InstantCommand(() -> moveToPosition(Constants.MechanismConstants.InPosition)));
+    //code the other button(s) to set the position for shooting
   }
 
   public Command getAutonomousCommand() {
     return chooser.getSelected();
+  }
+
+  public void moveToPosition(double DesiredPosition){
+    double currAngle = intakeAngle.intakeAngleMotor.getAbsoluteEncoder(Type.kDutyCycle).getPosition();
+
+    while (Math.abs(DesiredPosition - currAngle) > .03
+    ){
+      //add if logic to determine which direction the motor needs to turn
+      //add max and min angles, so that the motor doens't try to go all the way around 
+      if (currAngle > DesiredPosition){
+        intakeAngle.intakeAngleMotor.set(-Constants.MechanismConstants.kpresetAngleSpeed);
+        currAngle = intakeAngle.intakeAngleMotor.getAbsoluteEncoder(Type.kDutyCycle).getPosition();
+      }
+      
+      else
+      intakeAngle.intakeAngleMotor.set(Constants.MechanismConstants.kpresetAngleSpeed);
+      currAngle = intakeAngle.intakeAngleMotor.getAbsoluteEncoder(Type.kDutyCycle).getPosition();
+      
+    }
+    intakeAngle.intakeAngleMotor.set(0);
   }
 }
