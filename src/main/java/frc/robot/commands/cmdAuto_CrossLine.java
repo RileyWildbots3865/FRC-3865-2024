@@ -32,9 +32,9 @@ public class cmdAuto_CrossLine extends Command {
   @Override
   public void execute() {
     if(time.get() < 5){
-      swerve.drive(-speed, 0, 0);
+      swerve.drive(-speed, 0, 0, true);
     } else {
-      swerve.drive(0, 0, 0);
+      swerve.drive(0, 0, 0, true);
     }
   }
 

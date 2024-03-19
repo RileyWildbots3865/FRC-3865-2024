@@ -98,8 +98,8 @@ public class subSwerve extends SubsystemBase {
   }
 
   
-  public void drive(double xSpeed, double ySpeed, double rot) {
-    var swerveModuleStates = moduleConstants.kDriveKinematics.toSwerveModuleStates(ChassisSpeeds.fromFieldRelativeSpeeds(xSpeed, ySpeed, rot, getRotation2d()));
+  public void drive(double xSpeed, double ySpeed, double rot, boolean isFieldRelative) {
+    var swerveModuleStates = moduleConstants.kDriveKinematics.toSwerveModuleStates(isFieldRelative ? ChassisSpeeds.fromFieldRelativeSpeeds(xSpeed, ySpeed, rot, getRotation2d()) : new ChassisSpeeds(xSpeed, ySpeed, rot));
     setModuleStates(swerveModuleStates);
   }
 

@@ -24,17 +24,26 @@ public class subIntakeAngle extends SubsystemBase {
   
 
   public subIntakeAngle() {
-    intakeAngleMotor = new CANSparkMax(Constants.MechanismConstants.kintakeAnglecanId, MotorType.kBrushless);
+    intakeAngleMotor = new CANSparkMax(Constants.MechanismConstants.kintakeAnglecanId, MotorType.kBrushed);
     intakeAngleMotor.restoreFactoryDefaults();
     m_encoder = intakeAngleMotor.getAbsoluteEncoder(Type.kDutyCycle);
 
   }
+  public double getEncoder(){
+
+    return m_encoder.getPosition()*360;
+
+  }
+  public void TeleOp(double speed){
+    intakeAngleMotor.set(speed);
+  }
+  
   
      
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    SmartDashboard.putNumber("armAbsolutePose", m_encoder.getPosition());
+    SmartDashboard.putNumber("armAbsolutePose", getEncoder());
   }
 }

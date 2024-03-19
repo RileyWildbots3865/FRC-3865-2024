@@ -31,16 +31,16 @@ public class cmdAuto_Base extends Command {
   @Override
   public void execute() {
     if(time.get() < 2){
-      swerve.drive(-speed, 0, 0);
+      swerve.drive(-speed, 0, 0, true);
     }
     else if (time.get() < 3){
-      swerve.drive(0, 0, 0);
+      swerve.drive(0, 0, 0, true);
     }
     else if (time.get() < 4){
-      swerve.drive(speed, 0, 0);
+      swerve.drive(speed, 0, 0, true);
     }
     else{
-      swerve.drive(0, 0, 0);
+      swerve.drive(0, 0, 0, true);
     }
   }
 
