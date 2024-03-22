@@ -12,7 +12,7 @@ import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class swerveModule {
     private final CANcoder rotationEncoder;
@@ -25,10 +25,10 @@ public class swerveModule {
     private final SparkPIDController drivingPIDController;
     private final PIDController turningPIDController;
 
-    private final String name;
+    //private final String name;
 
-    public swerveModule(int drivingCANId, int turningCANId, int canCoderId, double angularOffset, String name) {
-        this.name = name;
+    public swerveModule(int drivingCANId, int turningCANId, int canCoderId, double angularOffset) {
+        //this.name = name;
         rotationEncoder = new CANcoder(canCoderId);
         CANcoderConfiguration canCoderConfiguration = new CANcoderConfiguration();
         canCoderConfiguration.MagnetSensor.AbsoluteSensorRange = AbsoluteSensorRangeValue.Unsigned_0To1;
@@ -88,9 +88,9 @@ public class swerveModule {
         drivingPIDController.setReference(optimizedDesiredState.speedMetersPerSecond, CANSparkMax.ControlType.kVelocity);
 
         turningSparkMax.set(turningPIDController.calculate(getAngle(), optimizedDesiredState.angle.getDegrees()));
-        SmartDashboard.putNumber(name + " Wheel Angle: ", getAngle());
-        SmartDashboard.putNumber(name + " Wheel Goal", optimizedDesiredState.angle.getDegrees());
-        SmartDashboard.putNumber(name + " Wheel PID", turningPIDController.calculate(getAngle(), optimizedDesiredState.angle.getDegrees()));
+        //SmartDashboard.putNumber(name + " Wheel Angle: ", getAngle());
+        //SmartDashboard.putNumber(name + " Wheel Goal", optimizedDesiredState.angle.getDegrees());
+        //SmartDashboard.putNumber(name + " Wheel PID", turningPIDController.calculate(getAngle(), optimizedDesiredState.angle.getDegrees()));
     }
     public double getAngle(){
         return rotationEncoder.getAbsolutePosition().getValueAsDouble() * 360;

@@ -29,8 +29,8 @@ public class RobotContainer {
   private final subIntakeAngle intakeAngle = new subIntakeAngle();
   private final subLongJohn longJohn = new subLongJohn();
 
-  private boolean fieldCentric = false;
-
+  public boolean fieldCentric = false;
+  
   SendableChooser<Command> chooser = new SendableChooser<>();
   public RobotContainer() {
     configureDriverOne();

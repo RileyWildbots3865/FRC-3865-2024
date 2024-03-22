@@ -1,12 +1,13 @@
 package frc.robot;
 
+
 public final class Constants {
   public static class OperatorConstants {
     public static final int DriverOne = 0;
     public static final int DriverTwo = 1;
   }
   public static final class DriveConstants {
-    public static final double kMaxSpeedMetersPerSecond = 5;
+    public static double kMaxSpeedMetersPerSecond = 5;
     public static final double kMaxAngularSpeed = 2.5 * Math.PI; // radians per second
   }
   public static final class MechanismConstants {

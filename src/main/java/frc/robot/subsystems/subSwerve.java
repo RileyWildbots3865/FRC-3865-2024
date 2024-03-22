@@ -2,6 +2,8 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.SerialPort.Port;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import com.kauailabs.navx.frc.AHRS;
 //import com.pathplanner.lib.auto.AutoBuilder;
 //import com.pathplanner.lib.util.HolonomicPathFollowerConfig;
@@ -15,7 +17,6 @@ import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.kinematics.SwerveDriveOdometry;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.classes.moduleConstants;
@@ -44,12 +45,12 @@ public class subSwerve extends SubsystemBase {
   public static final int kRearRightTurningCanId = 1;
   public static final int kRearRightCANcoder = 3;
 
-  private final swerveModule frontLeftModule = new swerveModule(kFrontLeftDrivingCanId,kFrontLeftTurningCanId,kFrontLeftCANcoder,kFrontLeftOffset, "Front Left");
-  private final swerveModule frontRightModule = new swerveModule(kFrontRightDrivingCanId,kFrontRightTurningCanId,kFrontRightCANcoder,kFrontRightOffset, "Front Right");
-  private final swerveModule rearLeftModule = new swerveModule(kRearLeftDrivingCanId,kRearLeftTurningCanId,kRearLeftCANcoder,kRearLeftOffset, "Rear Left");
-  private final swerveModule rearRightModule = new swerveModule(kRearRightDrivingCanId,kRearRightTurningCanId,kRearRightCANcoder,kRearRightOffset, "Rear Right");
+  private final swerveModule frontLeftModule = new swerveModule(kFrontLeftDrivingCanId,kFrontLeftTurningCanId,kFrontLeftCANcoder,kFrontLeftOffset);
+  private final swerveModule frontRightModule = new swerveModule(kFrontRightDrivingCanId,kFrontRightTurningCanId,kFrontRightCANcoder,kFrontRightOffset);
+  private final swerveModule rearLeftModule = new swerveModule(kRearLeftDrivingCanId,kRearLeftTurningCanId,kRearLeftCANcoder,kRearLeftOffset);
+  private final swerveModule rearRightModule = new swerveModule(kRearRightDrivingCanId,kRearRightTurningCanId,kRearRightCANcoder,kRearRightOffset);
   
-  private final AHRS gyro;
+  public AHRS gyro;
   public SwerveDriveOdometry odometry;
 
   public subSwerve() {
@@ -133,11 +134,11 @@ public class subSwerve extends SubsystemBase {
   @Override
   public void periodic() {
     updateOdometry();
-    SmartDashboard.putNumber("Heading", gyro.getRotation2d().getDegrees() );
-    SmartDashboard.putString("Robot Location", getPose().getTranslation().toString());
-    SmartDashboard.putNumber("Front Left Angle Raw", frontLeftModule.getRawAngle());    
-    SmartDashboard.putNumber("Front Right Angle Raw", frontRightModule.getRawAngle());    
-    SmartDashboard.putNumber("Back Left Angle Raw", rearLeftModule.getRawAngle());    
-    SmartDashboard.putNumber("Back Right Angle Raw", rearRightModule.getRawAngle());    
+    SmartDashboard.putNumber("Gyro", gyro.getRotation2d().getDegrees());
+    // SmartDashboard.putString("Robot Location", getPose().getTranslation().toString());
+    // SmartDashboard.putNumber("Front Left Angle Raw", frontLeftModule.getRawAngle());    
+    // SmartDashboard.putNumber("Front Right Angle Raw", frontRightModule.getRawAngle());    
+    // SmartDashboard.putNumber("Back Left Angle Raw", rearLeftModule.getRawAngle());    
+    // SmartDashboard.putNumber("Back Right Angle Raw", rearRightModule.getRawAngle());    
   }
 }
