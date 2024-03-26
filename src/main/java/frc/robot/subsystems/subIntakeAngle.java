@@ -7,21 +7,15 @@ package frc.robot.subsystems;
 import com.revrobotics.AbsoluteEncoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkLowLevel.MotorType;
-//import com.revrobotics.SparkPIDController;
 import com.revrobotics.SparkAbsoluteEncoder.Type;
 
-//import edu.wpi.first.math.controller.PIDController;
-//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class subIntakeAngle extends SubsystemBase {
   /** Creates a new subIntakeAngle. */
   public CANSparkMax intakeAngleMotor;
-  public AbsoluteEncoder m_encoder;
-
-  //private PIDController SetAnglePID = new PIDController(0,0,0);
-  
+  public AbsoluteEncoder m_encoder;  
 
   public subIntakeAngle() {
     intakeAngleMotor = new CANSparkMax(Constants.MechanismConstants.kintakeAnglecanId, MotorType.kBrushed);
@@ -44,6 +38,5 @@ public class subIntakeAngle extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    //SmartDashboard.putNumber("armAbsolutePose", getEncoder());
   }
 }

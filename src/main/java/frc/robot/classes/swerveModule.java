@@ -17,7 +17,7 @@ import edu.wpi.first.math.kinematics.SwerveModuleState;
 public class swerveModule {
     private final CANcoder rotationEncoder;
 
-    private final CANSparkMax drivingSparkMax;
+    public final CANSparkMax drivingSparkMax;
     private final CANSparkMax turningSparkMax;
 
     private final RelativeEncoder drivingEncoder;
@@ -64,7 +64,7 @@ public class swerveModule {
         turningSparkMax.setIdleMode(moduleConstants.kTurningMotorIdleMode);
         drivingSparkMax.setSmartCurrentLimit(moduleConstants.kDrivingMotorCurrentLimit);
         turningSparkMax.setSmartCurrentLimit(moduleConstants.kTurningMotorCurrentLimit);
-
+        
         turningPIDController = new PIDController(0.01, 0, 0);
         turningPIDController.setIntegratorRange(-1, 1);
         turningPIDController.enableContinuousInput(0, 360);

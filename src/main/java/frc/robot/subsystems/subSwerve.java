@@ -136,9 +136,14 @@ public class subSwerve extends SubsystemBase {
     updateOdometry();
     SmartDashboard.putNumber("Gyro", gyro.getRotation2d().getDegrees());
     // SmartDashboard.putString("Robot Location", getPose().getTranslation().toString());
-    // SmartDashboard.putNumber("Front Left Angle Raw", frontLeftModule.getRawAngle());    
-    // SmartDashboard.putNumber("Front Right Angle Raw", frontRightModule.getRawAngle());    
-    // SmartDashboard.putNumber("Back Left Angle Raw", rearLeftModule.getRawAngle());    
-    // SmartDashboard.putNumber("Back Right Angle Raw", rearRightModule.getRawAngle());    
+    SmartDashboard.putNumber("FrontLeftAngle", frontLeftModule.getRawAngle() * 360);
+    SmartDashboard.putNumber("FrontRightAngle", frontRightModule.getRawAngle() * 360);    
+    SmartDashboard.putNumber("BackLeftAngle", rearLeftModule.getRawAngle() * 360);    
+    SmartDashboard.putNumber("BackRightAngle", rearRightModule.getRawAngle() * 360); 
+    
+    SmartDashboard.putNumber("FrontLeftSpeed", frontLeftModule.drivingSparkMax.getEncoder().getVelocity());
+    SmartDashboard.putNumber("FrontRightSpeed", frontRightModule.drivingSparkMax.getEncoder().getVelocity());
+    SmartDashboard.putNumber("BackLeftSpeed", rearLeftModule.drivingSparkMax.getEncoder().getVelocity());
+    SmartDashboard.putNumber("BackRightSpeed", rearRightModule.drivingSparkMax.getEncoder().getVelocity());
   }
 }

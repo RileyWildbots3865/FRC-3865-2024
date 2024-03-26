@@ -29,7 +29,7 @@ public class RobotContainer {
   private final subIntakeAngle intakeAngle = new subIntakeAngle();
   private final subLongJohn longJohn = new subLongJohn();
 
-  public boolean fieldCentric = false;
+  public static boolean fieldCentric = false;
   
   SendableChooser<Command> chooser = new SendableChooser<>();
   public RobotContainer() {
@@ -64,8 +64,10 @@ public class RobotContainer {
 
     driverTwo.povRight().whileTrue(new cmdIntake_TeleOp(intake, true));
     driverTwo.povLeft().whileTrue(new cmdIntake_TeleOp(intake, false));
-    
+
+    //L1 moves the intke towards the battery
     driverTwo.L1().whileTrue(new cmdIntakeAngle_TeleOp(intakeAngle, true));
+    //R1 moves the intake away from the battery7
     driverTwo.R1().whileTrue(new cmdIntakeAngle_TeleOp(intakeAngle, false));
 
     //use a variable to set .46 as the desired angle
