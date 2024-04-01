@@ -7,7 +7,7 @@ package frc.robot.subsystems;
 import com.revrobotics.AbsoluteEncoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkLowLevel.MotorType;
-import com.revrobotics.SparkAbsoluteEncoder.Type;
+//import com.revrobotics.SparkAbsoluteEncoder.Type;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -18,9 +18,9 @@ public class subIntakeAngle extends SubsystemBase {
   public AbsoluteEncoder m_encoder;  
 
   public subIntakeAngle() {
-    intakeAngleMotor = new CANSparkMax(Constants.MechanismConstants.kintakeAnglecanId, MotorType.kBrushed);
+    intakeAngleMotor = new CANSparkMax(Constants.MechanismConstants.kintakeAnglecanId, MotorType.kBrushless);
     intakeAngleMotor.restoreFactoryDefaults();
-    m_encoder = intakeAngleMotor.getAbsoluteEncoder(Type.kDutyCycle);
+    //m_encoder = intakeAngleMotor.getAbsoluteEncoder(Type.kDutyCycle);
 
   }
   public double getEncoder(){

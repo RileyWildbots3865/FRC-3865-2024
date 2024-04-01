@@ -12,10 +12,12 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.cmdAuto_Base;
 import frc.robot.commands.cmdAuto_CrossLine;
 import frc.robot.commands.cmdAuto_IntakePosition;
+import frc.robot.commands.cmdElevator_TeleOp;
 import frc.robot.commands.cmdIntakeAngle_TeleOp;
 import frc.robot.commands.cmdIntake_TeleOp;
 import frc.robot.commands.cmdLongJohn_TeleOp;
 import frc.robot.commands.cmdSwerve_TeleOp;
+import frc.robot.subsystems.subElevator;
 import frc.robot.subsystems.subIntake;
 import frc.robot.subsystems.subIntakeAngle;
 import frc.robot.subsystems.subLongJohn;
@@ -28,6 +30,7 @@ public class RobotContainer {
   private final subIntake intake = new subIntake();
   private final subIntakeAngle intakeAngle = new subIntakeAngle();
   private final subLongJohn longJohn = new subLongJohn();
+  private final subElevator elevator = new subElevator();
 
   public static boolean fieldCentric = false;
   
@@ -64,6 +67,9 @@ public class RobotContainer {
 
     driverTwo.povRight().whileTrue(new cmdIntake_TeleOp(intake, true));
     driverTwo.povLeft().whileTrue(new cmdIntake_TeleOp(intake, false));
+
+    driverTwo.axisLessThan(1, -.5).whileTrue(new cmdElevator_TeleOp(elevator, true));
+    driverTwo.axisGreaterThan(1, .5).whileTrue(new cmdElevator_TeleOp(elevator, false));
 
     //L1 moves the intke towards the battery
     driverTwo.L1().whileTrue(new cmdIntakeAngle_TeleOp(intakeAngle, true));

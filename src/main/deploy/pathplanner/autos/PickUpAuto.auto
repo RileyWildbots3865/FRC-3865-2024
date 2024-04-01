@@ -5,7 +5,7 @@
       "x": 2.0,
       "y": 7.0
     },
-    "rotation": 0
+    "rotation": 0.0
   },
   "command": {
     "type": "sequential",
@@ -14,12 +14,12 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Drive Back"
+            "pathName": "PickUpPath"
           }
         }
       ]
     }
   },
-  "folder": "TestAutos",
+  "folder": null,
   "choreoAuto": false
 }
