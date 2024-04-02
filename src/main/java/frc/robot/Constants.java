@@ -12,9 +12,9 @@ public final class Constants {
   }
   public static final class MechanismConstants {
     public static final int kintakeAnglecanId = 9;
-    public static final int klongJohnCanId = 11;
-    public static final int kintakeCanId = 12;
-    public static final int kelevatorCanId = 13;
+    public static final int klongJohnCanId = 10;
+    public static final int kintakeCanId = 11;
+    public static final int kelevatorCanId = 12;
     
     public static final double kintakeSpeedIn = 0.5;
     public static final double kintakeSpeedOut = -0.29;
